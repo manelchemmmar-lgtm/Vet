@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Calcul Moyenne Vétérinaire</title>
+
+<style>
+body{
+  font-family: Arial;
+  background:#f4f4f4;
+  padding:20px;
+}
+
+.box{
+  background:white;
+  padding:15px;
+  margin-bottom:15px;
+  border-radius:10px;
+}
+
+input{
+  display:block;
+  margin:5px 0;
+  padding:8px;
+  width:200px;
+}
+
+button{
+  padding:10px 20px;
+  font-size:16px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>2ème Année Vétérinaire</h1>
+
+<div class="box">
+<h2>Anatomie</h2>
+<input type="number" id="anat_exam" placeholder="Exam">
+<input type="number" id="anat_td" placeholder="TD">
+</div>
+
+<div class="box">
+<h2>Physiologie</h2>
+<input type="number" id="physio_exam" placeholder="Exam">
+<input type="number" id="physio_td" placeholder="TD">
+</div>
+
+<div class="box">
+<h2>RAP</h2>
+<input type="number" id="rap_exam" placeholder="Exam">
+<input type="number" id="rap_td" placeholder="TD">
+</div>
+
+<div class="box">
+<h2>Hémo</h2>
+<input type="number" id="hemo_exam" placeholder="Exam">
+<input type="number" id="hemo_td" placeholder="TD">
+</div>
+
+<div class="box">
+<h2>Immunologie</h2>
+<input type="number" id="immuno_exam" placeholder="Exam">
+<input type="number" id="immuno_td" placeholder="TD">
+</div>
+
+<div class="box">
+<h2>Bactériologie</h2>
+<input type="number" id="bact_exam" placeholder="Exam">
+<input type="number" id="bact_td" placeholder="TD">
+</div>
+
+<div class="box">
+<h2>Virologie</h2>
+<input type="number" id="viro_exam" placeholder="Exam">
+<input type="number" id="viro_td" placeholder="TD">
+</div>
+
+<div class="box">
+<h2>Histologie</h2>
+<input type="number" id="histo_exam" placeholder="Exam">
+<input type="number" id="histo_td" placeholder="TD">
+</div>
+
+<div class="box">
+<h2>Anglais</h2>
+<input type="number" id="anglais_exam" placeholder="Exam">
+<input type="number" id="anglais_td" placeholder="TD">
+</div>
+
+<div class="box">
+<h2>Bioinfo</h2>
+<input type="number" id="bioinfo_exam" placeholder="Exam">
+<input type="number" id="bioinfo_td" placeholder="TD">
+</div>
+
+<div class="box">
+<h2>EPA</h2>
+<input type="number" id="epa_exam" placeholder="Exam">
+<input type="number" id="epa_td" placeholder="TD">
+</div>
+
+<div class="box">
+<h2>AGB</h2>
+<input type="number" id="agb_exam" placeholder="Exam">
+<input type="number" id="agb_td" placeholder="TD">
+</div>
+
+<div class="box">
+<h2>Biostat</h2>
+<input type="number" id="biostat_exam" placeholder="Exam">
+<input type="number" id="biostat_td" placeholder="TD">
+</div>
+
+<button onclick="calculate()">Calculate</button>
+
+<h2 id="result"></h2>
+
+<script>
+
+function moduleAverage(exam, td){
+  return (exam * 0.6) + (td * 0.4);
+}
+
+function calculate(){
+
+let anatomie =
+moduleAverage(
+parseFloat(document.getElementById("anat_exam").value)||0,
+parseFloat(document.getElementById("anat_td").value)||0
+);
+
+let physio =
+moduleAverage(
+parseFloat(document.getElementById("physio_exam").value)||0,
+parseFloat(document.getElementById("physio_td").value)||0
+);
+
+let rap =
+moduleAverage(
+parseFloat(document.getElementById("rap_exam").value)||0,
+parseFloat(document.getElementById("rap_td").value)||0
+);
+
+let hemo =
+moduleAverage(
+parseFloat(document.getElementById("hemo_exam").value)||0,
+parseFloat(document.getElementById("hemo_td").value)||0
+);
+
+let immuno =
+moduleAverage(
+parseFloat(document.getElementById("immuno_exam").value)||0,
+parseFloat(document.getElementById("immuno_td").value)||0
+);
+
+let bact =
+moduleAverage(
+parseFloat(document.getElementById("bact_exam").value)||0,
+parseFloat(document.getElementById("bact_td").value)||0
+);
+
+let viro =
+moduleAverage(
+parseFloat(document.getElementById("viro_exam").value)||0,
+parseFloat(document.getElementById("viro_td").value)||0
+);
+
+let histo =
+moduleAverage(
+parseFloat(document.getElementById("histo_exam").value)||0,
+parseFloat(document.getElementById("histo_td").value)||0
+);
+
+let anglais =
+moduleAverage(
+parseFloat(document.getElementById("anglais_exam").value)||0,
+parseFloat(document.getElementById("anglais_td").value)||0
+);
+
+let bioinfo =
+moduleAverage(
+parseFloat(document.getElementById("bioinfo_exam").value)||0,
+parseFloat(document.getElementById("bioinfo_td").value)||0
+);
+
+let epa =
+moduleAverage(
+parseFloat(document.getElementById("epa_exam").value)||0,
+parseFloat(document.getElementById("epa_td").value)||0
+);
+
+let agb =
+moduleAverage(
+parseFloat(document.getElementById("agb_exam").value)||0,
+parseFloat(document.getElementById("agb_td").value)||0
+);
+
+let biostat =
+moduleAverage(
+parseFloat(document.getElementById("biostat_exam").value)||0,
+parseFloat(document.getElementById("biostat_td").value)||0
+);
+
+let total =
+(anatomie * 2) +
+(physio * 2) +
+(rap * 2) +
+(hemo * 3) +
+(immuno * 2) +
+(bact * 2) +
+(viro * 2) +
+(histo * 1) +
+(anglais * 1) +
+(bioinfo * 1) +
+(epa * 3) +
+(agb * 3) +
+(biostat * 3);
+
+let moyenne = total / 27;
+
+document.getElementById("result").innerText =
+"General Average = " + moyenne.toFixed(2);
+
+}
+
+</script>
+
+</body>
+</html>
